@@ -7,10 +7,10 @@ terraform {
 }
 
 provider "yandex" {
-  zone      = "ru-central1-a"
-  token     = "REPLACED_SECRET"
-  cloud_id  = "b1g4cpsvgtbt8dej02g0"
-  folder_id = "b1gehd65o0g9dr81jndo"
+  token     = var.yc_token
+  cloud_id  = var.yc_cloud_id
+  folder_id = var.yc_folder_id
+  zone      = var.yc_zone
 }
 
 resource "yandex_compute_instance" "default" {
@@ -29,7 +29,7 @@ resource "yandex_compute_instance" "default" {
     }
   }
   network_interface {
-    subnet_id = "e9bdgo95ucmut6r7pioq"
+    subnet_id = var.subnet_id
     nat       = true
   }
 }
