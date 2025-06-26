@@ -1,8 +1,21 @@
 terraform {
+  required_version = ">= 0.13"
+  
   required_providers {
     yandex = {
-      source = "yandex-cloud/yandex"
+      source  = "yandex-cloud/yandex"
+      version = "~> 0.100"
     }
+  }
+
+  backend "s3" {
+    endpoint   = "storage.yandexcloud.net"
+    bucket     = "tf-state-bucket"
+    key        = "prod/terraform.tfstate"
+    region     = "ru-central1"
+    skip_region_validation      = true
+    skip_credentials_validation = true
+    encrypt    = true
   }
 }
 
@@ -13,23 +26,8 @@ provider "yandex" {
   zone      = var.yc_zone
 }
 
-resource "yandex_compute_instance" "default" {
-  name        = "terraform-instance"
-  platform_id = "standard-v1"
-
-  resources {
-    core_fraction = 5
-    cores         = 2
-    memory        = 1
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd8l7di2ic805du7tav5"
-    }
-  }
-  network_interface {
-    subnet_id = var.subnet_id
-    nat       = true
-  }
+# Простой S3 бакет
+resource "yandex_storage_bucket" "bucket" {
+  bucket = var.bucket_name
+  acl    = "private"
 }

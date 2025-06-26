@@ -22,7 +22,8 @@ variable "yc_zone" {
   default     = "ru-central1-a"
 }
 
-variable "subnet_id" {
-  description = "Subnet ID for VM"
+variable "bucket_name" {
+  description = "Name of the S3 bucket"
   type        = string
+  default     = "my-terraform-bucket"
 }

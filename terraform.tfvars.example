@@ -10,10 +10,6 @@ yc_cloud_id = "your_cloud_id_here"
 # Yandex Cloud Folder ID
 yc_folder_id = "your_folder_id_here"
 
-# Subnet ID for VM (обязательно)
-subnet_id = "your_subnet_id_here"
-
-# Optional variables (можно не указывать, если подходят значения по умолчанию)
+# Optional variables
 # yc_zone = "ru-central1-a"
-# instance_name = "terraform-vm"
-# image_id = "fd8l7di2ic805du7tav5" 
+# bucket_name = "my-terraform-bucket" 
