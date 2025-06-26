@@ -1,0 +1,19 @@
+# Пример файла terraform.tfvars
+# Скопируйте этот файл в terraform.tfvars и заполните реальными значениями
+
+# Yandex Cloud OAuth token
+yc_token = "your_yc_token_here"
+
+# Yandex Cloud ID
+yc_cloud_id = "your_cloud_id_here"
+
+# Yandex Cloud Folder ID
+yc_folder_id = "your_folder_id_here"
+
+# Subnet ID for VM (обязательно)
+subnet_id = "your_subnet_id_here"
+
+# Optional variables (можно не указывать, если подходят значения по умолчанию)
+# yc_zone = "ru-central1-a"
+# instance_name = "terraform-vm"
+# image_id = "fd8l7di2ic805du7tav5" 
