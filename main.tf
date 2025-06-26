@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image_id = "fl8o5ot86e2sucpdrg4g"
+      image_id = "fd8l7di2ic805du7tav5"
     }
   }
   network_interface {
